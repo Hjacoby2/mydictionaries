@@ -15,7 +15,7 @@ room-number,use,sq-ft,price
 
 '''
 
-
+import csv
 
 
 datastore = { "medical":[
@@ -47,3 +47,16 @@ datastore = { "medical":[
 
       ]
 }
+
+def main():
+    infile = open('retail_space.csv','r')
+    csv_obj = csv.reader(infile)
+    header = next(csv_obj)
+    print(header)
+
+    for room in datastore["medical"]:
+        row = f'{room["room-number"]},{room["use"]},{room["sq-ft"]},{room["price"]}'
+        print(row)  
+        infile.close()  
+
+main()
